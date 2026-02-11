@@ -1,0 +1,107 @@
+.footer {
+    background-color: #1a1a1a;
+    color: #e0e0e0;
+    padding: 5rem 0 2rem;
+    position: relative;
+}
+
+.container {
+    max-width: var(--wrapper-max-width);
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.top {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 4rem;
+    margin-bottom: 4rem;
+}
+
+.logo {
+    font-size: 1.5rem;
+    color: white;
+    margin-bottom: 0.5rem;
+}
+
+.tagline {
+    font-size: 0.9rem;
+    color: #888;
+}
+
+.links {
+    display: flex;
+    gap: 4rem;
+    flex-wrap: wrap;
+}
+
+.column h4 {
+    color: white;
+    margin-bottom: 1.5rem;
+    font-size: 1rem;
+}
+
+.column a {
+    display: block;
+    color: #888;
+    margin-bottom: 0.75rem;
+    font-size: 0.9rem;
+    transition: color 0.2s;
+}
+
+.column a:hover {
+    color: white;
+}
+
+.socials {
+    display: flex;
+    gap: 1rem;
+}
+
+.socials a {
+    font-size: 1.25rem;
+}
+
+.bottom {
+    border-top: 1px solid #333;
+    padding-top: 2rem;
+    text-align: center;
+    font-size: 0.8rem;
+    color: #666;
+}
+
+.stickyCta {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    z-index: 100;
+}
+
+.stickyButton {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    padding: 1rem 2rem;
+}
+
+@media (max-width: 768px) {
+    .top {
+        flex-direction: column;
+        gap: 3rem;
+    }
+
+    .links {
+        gap: 2rem;
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .stickyCta {
+        bottom: 1rem;
+        right: 1rem;
+        left: 1rem;
+    }
+
+    .stickyButton {
+        width: 100%;
+    }
+}

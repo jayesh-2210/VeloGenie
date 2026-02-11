@@ -1,0 +1,131 @@
+.section {
+    padding: 6rem 0;
+    background-color: #f9fafb;
+    position: relative;
+    overflow: hidden;
+}
+
+.section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../assets/pattern-bg.png');
+    background-repeat: repeat;
+    opacity: 0.05;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.container {
+    max-width: var(--wrapper-max-width);
+    margin: 0 auto;
+    padding: 0 2rem;
+    position: relative;
+    z-index: 1;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.title {
+    font-size: 2.5rem;
+    color: var(--color-secondary);
+    margin-bottom: 1rem;
+}
+
+.comparison {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    align-items: stretch;
+}
+
+.card {
+    background: white;
+    padding: 2.5rem;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.problem {
+    border-left: 4px solid #ff4d4f;
+}
+
+.solution {
+    border-left: 4px solid var(--color-primary);
+    background: linear-gradient(to bottom right, #fff, #f0f7ff);
+    transform: scale(1.02);
+    box-shadow: 0 12px 32px rgba(0, 102, 204, 0.15);
+}
+
+.cardHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 1rem;
+}
+
+.cardHeader h3 {
+    font-size: 1.5rem;
+    color: var(--color-secondary);
+}
+
+.icon {
+    font-size: 2rem;
+}
+
+.list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.list li {
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    color: #555;
+    font-size: 1.1rem;
+}
+
+.list li::before {
+    content: "•";
+    margin-right: 10px;
+    font-size: 1.5rem;
+    line-height: 1;
+}
+
+.problem .list li::before {
+    color: #ff4d4f;
+}
+
+.solution .list li::before {
+    color: var(--color-primary);
+    content: "✓";
+}
+
+@media (max-width: 768px) {
+    .comparison {
+        grid-template-columns: 1fr;
+    }
+
+    .solution {
+        transform: none;
+    }
+
+    .card {
+        padding: 1.5rem;
+    }
+
+    .title {
+        font-size: 2rem;
+    }
+}
