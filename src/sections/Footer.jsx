@@ -27,6 +27,15 @@ const Footer = () => {
                             <a href="/careers">Careers</a>
                         </div>
                         <div className={styles.column}>
+                            <h4>Contact</h4>
+                            <p style={{ fontSize: '0.9rem', color: '#8892b0', lineHeight: '1.6' }}>
+                                <strong>Registered Office:</strong><br />
+                                IIM Bangalore,<br />
+                                Bannerghatta Road,<br />
+                                Bengaluru, Karnataka 560076
+                            </p>
+                        </div>
+                        <div className={styles.column}>
                             <h4>Connect</h4>
                             <div className={styles.socials}>
                                 <a href="#"><FaLinkedin /></a>
