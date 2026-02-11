@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
 import Button from '../components/Button';
+import ScrollReveal from '../components/ScrollReveal';
 import styles from './TechnicalAudit.module.css';
 
 const TechnicalAudit = () => {
@@ -27,12 +27,7 @@ const TechnicalAudit = () => {
     return (
         <section className={styles.section}>
             <div className={`container ${styles.container}`}>
-                <motion.div
-                    className={styles.content}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8 }}
-                >
+                <ScrollReveal variant="slideUp" className={styles.content}>
                     <h1 className={styles.title}>Get Your Free Technical Audit</h1>
                     <p className={styles.subtitle}>
                         Discover the hidden bottlenecks slowing down your business.
@@ -40,15 +35,11 @@ const TechnicalAudit = () => {
                     </p>
 
                     {submitted ? (
-                        <motion.div
-                            className={styles.successMessage}
-                            initial={{ opacity: 0, scale: 0.9 }}
-                            animate={{ opacity: 1, scale: 1 }}
-                        >
+                        <div className={styles.successMessage}>
                             <h3>🚀 Audit Request Received!</h3>
                             <p>Our Genies are already analyzing your digital footprint. We'll be in touch shortly.</p>
                             <Button href="/" variant="secondary">Back to Home</Button>
-                        </motion.div>
+                        </div>
                     ) : (
                         <form onSubmit={handleSubmit} className={styles.form}>
                             <div className={styles.formGroup}>
@@ -103,7 +94,7 @@ const TechnicalAudit = () => {
                             </Button>
                         </form>
                     )}
-                </motion.div>
+                </ScrollReveal>
             </div>
         </section>
     );

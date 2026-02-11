@@ -1,0 +1,39 @@
+:root {
+    --color-primary: #0c443b;
+    /* Deep Teal */
+    --color-secondary: #ffffff;
+    --color-accent: #64ffda;
+    /* Mint/Cyan */
+    --color-text: #e0e0e0;
+    --color-heading: #ffffff;
+    --font-heading: 'Outfit', sans-serif;
+    --font-primary: 'Quicksand', sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-primary);
+    background-color: var(--color-primary);
+    color: var(--color-text);
+    overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--font-heading);
+    color: var(--color-heading);
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}

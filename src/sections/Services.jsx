@@ -11,6 +11,7 @@ const tiers = [
         features: ['Single Page Application', 'SEO Optimization', 'Contact Form', '1 Week Delivery'],
         price: 'Starting at ₹5,000',
         color: '#0066cc',
+        icon: '/src/assets/service-launchpad.png',
         delay: 0
     },
     {
@@ -21,6 +22,7 @@ const tiers = [
         price: 'Custom Quote',
         color: '#333333',
         featured: true,
+        icon: '/src/assets/service-scaleup.png',
         delay: 0.2
     },
     {
@@ -30,6 +32,7 @@ const tiers = [
         features: ['Microservices Architecture', 'High Security & Compliance', '99.9% Uptime SLA', 'Dedicated Support Team'],
         price: 'Custom Quote',
         color: '#000000',
+        icon: '/src/assets/service-enterprise.png',
         delay: 0.4
     }
 ];
@@ -59,6 +62,9 @@ const Services = () => {
                             transition={{ delay: tier.delay }}
                         >
                             <div className={styles.cardContent}>
+                                <div style={{ height: '80px', marginBottom: '20px', display: 'flex', alignItems: 'center' }}>
+                                    <img src={tier.icon} alt={tier.title} style={{ height: '100%', objectFit: 'contain' }} />
+                                </div>
                                 <h3 className={styles.tierTitle}>{tier.title}</h3>
                                 <span className={styles.tierSubtitle}>{tier.subtitle}</span>
                                 <p className={styles.description}>{tier.description}</p>

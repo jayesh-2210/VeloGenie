@@ -1,6 +1,6 @@
 import React from 'react';
-import { motion } from 'framer-motion';
 import Button from '../components/Button';
+import ScrollReveal from '../components/ScrollReveal';
 import styles from './Advantage.module.css';
 
 const stats = [
@@ -15,48 +15,39 @@ const Advantage = () => {
         <section className={styles.section}>
             <div className={`container ${styles.container}`}>
                 <div className={styles.content}>
-                    <motion.h2
-                        className={styles.title}
-                        initial={{ opacity: 0, x: -30 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                    >
-                        The VeloGenie Advantage
-                    </motion.h2>
-                    <motion.p
-                        className={styles.description}
-                        initial={{ opacity: 0, x: -30 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: 0.2 }}
-                    >
-                        We don't just build websites; we engineer high-performance digital assets.
-                        Our architecture ensures your business runs at the speed of light, with logic that scales.
-                    </motion.p>
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: 0.4 }}
-                    >
+                    <ScrollReveal variant="slideLeft">
+                        <h2 className={styles.title}>The VeloGenie Advantage</h2>
+                        <p className={styles.description}>
+                            We don't just build websites; we engineer high-performance digital assets.
+                            Our architecture ensures your business runs at the speed of light, with logic that scales.
+                        </p>
+                    </ScrollReveal>
+
+                    <ScrollReveal variant="zoomIn" delay={0.2} className={styles.imageWrapper}>
+                        <img
+                            src="/src/assets/advantage-speed.png"
+                            alt="Speed Advantage"
+                            style={{ width: '100%', display: 'block' }}
+                        />
+                    </ScrollReveal>
+
+                    <ScrollReveal variant="slideUp" delay={0.3}>
                         <Button variant="primary" href="/why-speed-matters">Why Speed Matters</Button>
-                    </motion.div>
+                    </ScrollReveal>
                 </div>
 
                 <div className={styles.statsGrid}>
                     {stats.map((stat, index) => (
-                        <motion.div
+                        <ScrollReveal
                             key={index}
+                            variant="zoomIn"
+                            delay={index * 0.1 + 0.2}
                             className={styles.statCard}
-                            initial={{ opacity: 0, scale: 0.9 }}
-                            whileInView={{ opacity: 1, scale: 1 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: index * 0.1 }}
                         >
                             <h3 className={styles.statValue}>{stat.value}</h3>
-                            <p className={styles.statLabel}>{stat.label}</p>
+                            <span className={styles.statLabel}>{stat.label}</span>
                             <span className={styles.statDesc}>{stat.desc}</span>
-                        </motion.div>
+                        </ScrollReveal>
                     ))}
                 </div>
             </div>

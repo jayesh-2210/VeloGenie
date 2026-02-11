@@ -1,5 +1,5 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import ScrollReveal from '../components/ScrollReveal';
 import styles from './ProblemSolution.module.css';
 
 const ProblemSolution = () => {
@@ -7,24 +7,15 @@ const ProblemSolution = () => {
         <section className={styles.section}>
             <div className={`container ${styles.container}`}>
                 <div className={styles.header}>
-                    <motion.h2
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        className={styles.title}
-                    >
-                        Stop Losing Customers to Slow Websites
-                    </motion.h2>
+                    <ScrollReveal variant="slideUp">
+                        <h2 className={styles.title}>
+                            Stop Losing Customers to Slow Websites
+                        </h2>
+                    </ScrollReveal>
                 </div>
 
                 <div className={styles.comparison}>
-                    <motion.div
-                        className={`${styles.card} ${styles.problem}`}
-                        initial={{ opacity: 0, x: -50 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: 0.2 }}
-                    >
+                    <ScrollReveal variant="slideLeft" className={`${styles.card} ${styles.problem}`}>
                         <div className={styles.cardHeader}>
                             <h3>The Old Way</h3>
                             <span className={styles.icon}>🐢</span>
@@ -35,15 +26,9 @@ const ProblemSolution = () => {
                             <li>Poor Core Web Vitals</li>
                             <li>High bounce rates</li>
                         </ul>
-                    </motion.div>
+                    </ScrollReveal>
 
-                    <motion.div
-                        className={`${styles.card} ${styles.solution}`}
-                        initial={{ opacity: 0, x: 50 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: 0.4 }}
-                    >
+                    <ScrollReveal variant="zoomIn" delay={0.2} className={`${styles.card} ${styles.solution}`}>
                         <div className={styles.cardHeader}>
                             <h3>The VeloGenie Way</h3>
                             <span className={styles.icon}>⚡</span>
@@ -54,7 +39,7 @@ const ProblemSolution = () => {
                             <li>99+ Google PageSpeed Scores</li>
                             <li>Seamless scalability</li>
                         </ul>
-                    </motion.div>
+                    </ScrollReveal>
                 </div>
             </div>
         </section>

@@ -1,16 +1,22 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { Routes, Route } from 'react-router-dom';
+import { AnimatePresence } from 'framer-motion';
+import './styles/GlobalStyles.css';
+import Header from './components/Header';
 import Hero from './sections/Hero';
-import ProblemSolution from './sections/ProblemSolution';
 import Services from './sections/Services';
+import ProblemSolution from './sections/ProblemSolution';
+import CaseStudies from './sections/CaseStudies';
 import Advantage from './sections/Advantage';
-import SocialProof from './sections/SocialProof';
 import Footer from './sections/Footer';
 import TechnicalAudit from './sections/TechnicalAudit';
 import RequestQuote from './sections/RequestQuote';
 import WhySpeedMatters from './sections/WhySpeedMatters';
 import AboutUs from './sections/AboutUs';
-import CaseStudies from './sections/CaseStudies';
 import Careers from './sections/Careers';
+
+import Preloader from './components/Preloader';
+import { TransitionProvider, useTransition } from './context/TransitionContext';
 
 function Layout() {
     return (
@@ -19,7 +25,6 @@ function Layout() {
             <ProblemSolution />
             <Services />
             <Advantage />
-            <SocialProof />
             <Footer />
         </div>
     );
@@ -79,19 +84,48 @@ function CareersPage() {
     );
 }
 
+// Create a wrapper component to consume the context
+const AppContent = () => {
+    const { isLoading, completedTransition } = useTransition();
+
+    useEffect(() => {
+        if (isLoading) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = 'unset';
+        }
+    }, [isLoading]);
+
+    return (
+        <>
+            <AnimatePresence mode="wait">
+                {isLoading && (
+                    <Preloader key="preloader" onComplete={completedTransition} />
+                )}
+            </AnimatePresence>
+            {!isLoading && (
+                <>
+                    <Header />
+                    <Routes>
+                        <Route path="/" element={<Layout />} />
+                        <Route path="/audit" element={<AuditPage />} />
+                        <Route path="/quote" element={<QuotePage />} />
+                        <Route path="/why-speed-matters" element={<SpeedPage />} />
+                        <Route path="/about" element={<AboutPage />} />
+                        <Route path="/case-studies" element={<CaseStudiesPage />} />
+                        <Route path="/careers" element={<CareersPage />} />
+                    </Routes>
+                </>
+            )}
+        </>
+    );
+};
+
 function App() {
     return (
-        <Router>
-            <Routes>
-                <Route path="/" element={<Layout />} />
-                <Route path="/audit" element={<AuditPage />} />
-                <Route path="/quote" element={<QuotePage />} />
-                <Route path="/why-speed-matters" element={<SpeedPage />} />
-                <Route path="/about" element={<AboutPage />} />
-                <Route path="/case-studies" element={<CaseStudiesPage />} />
-                <Route path="/careers" element={<CareersPage />} />
-            </Routes>
-        </Router>
+        <TransitionProvider>
+            <AppContent />
+        </TransitionProvider>
     );
 }
 

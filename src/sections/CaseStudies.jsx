@@ -8,6 +8,7 @@ const projects = [
         title: 'Ecommerce Giant Replatform',
         category: 'Enterprise Forge',
         description: 'Migrated a monolithic Magento store to a headless Next.js architecture. Reduced load time by 65% and increased mobile conversions by 40%.',
+        image: '/src/assets/case-ecommerce.png',
         stats: [
             { label: 'Load Time', value: '-65%' },
             { label: 'Conversion', value: '+40%' }
@@ -17,6 +18,7 @@ const projects = [
         title: 'FinTech Dashboard',
         category: 'ScaleUp',
         description: 'Real-time analytics dashboard for a crypto trading platform. Implemented WebSocket connections for sub-millisecond data updates.',
+        image: '/src/assets/case-fintech.png',
         stats: [
             { label: 'Latency', value: '<50ms' },
             { label: 'Uptime', value: '99.99%' }
@@ -26,6 +28,7 @@ const projects = [
         title: 'Artisan Coffee Roasters',
         category: 'LaunchPad',
         description: 'Single-page application for a local coffee brand. Integrated custom booking form for workshops and SEO optimization for local search.',
+        image: '/src/assets/case-coffee.png',
         stats: [
             { label: 'Traffic', value: '+200%' },
             { label: 'Leads', value: '15/mo' }
@@ -60,8 +63,12 @@ const CaseStudies = () => {
                             viewport={{ once: true }}
                             transition={{ delay: index * 0.1 }}
                         >
-                            <div className={styles.imagePlaceholder}>
-                                Project Screenshot
+                            <div className={styles.imagePlaceholder} style={{ background: 'none', padding: 0, overflow: 'hidden' }}>
+                                <img
+                                    src={project.image}
+                                    alt={project.title}
+                                    style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.5s ease' }}
+                                />
                             </div>
                             <div className={styles.cardContent}>
                                 <span className={styles.cardCategory}>{project.category}</span>

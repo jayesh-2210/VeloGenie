@@ -1,7 +1,9 @@
 .section {
-    padding: 8rem 0;
+    padding: 120px 0;
+    /* More padding for header clearance */
     min-height: 100vh;
-    background: linear-gradient(135deg, #f8f9fa 0%, #e6efff 100%);
+    background-color: var(--color-accent);
+    /* Light Gray */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -10,29 +12,35 @@
 .container {
     max-width: 800px;
     margin: 0 auto;
-    padding: 0 2rem;
+    padding: 0 15px;
+    width: 100%;
 }
 
 .content {
     background: white;
-    padding: 3rem;
-    border-radius: 16px;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
+    padding: 3.5rem;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(0, 0, 0, 0.02);
 }
 
 .title {
     font-size: 2.5rem;
-    color: var(--color-secondary);
+    font-weight: 700;
+    color: var(--color-heading);
     margin-bottom: 1rem;
     text-align: center;
 }
 
 .subtitle {
     font-size: 1.1rem;
-    color: #555;
+    color: #666;
     text-align: center;
     margin-bottom: 3rem;
     line-height: 1.6;
+    max-width: 90%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .form {
@@ -46,32 +54,39 @@
 }
 
 .formGroup label {
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     font-weight: 600;
-    color: var(--color-secondary);
+    color: var(--color-text);
     margin-bottom: 0.5rem;
 }
 
 .formGroup input,
 .formGroup textarea {
-    padding: 0.75rem 1rem;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    font-family: var(--font-body);
+    padding: 1rem 1.25rem;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    font-family: var(--font-primary);
     font-size: 1rem;
-    transition: border-color 0.3s ease;
+    background-color: #f9f9f9;
+    transition: all 0.3s ease;
+    width: 100%;
+    box-sizing: border-box;
+    /* Ensure padding doesn't affect width */
 }
 
 .formGroup input:focus,
 .formGroup textarea:focus {
     outline: none;
     border-color: var(--color-primary);
-    box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.1);
+    background-color: white;
+    box-shadow: 0 0 0 4px rgba(18, 85, 75, 0.1);
 }
 
 .submitBtn {
     width: 100%;
-    margin-top: 1rem;
+    margin-top: 1.5rem;
+    padding: 1.2rem;
+    font-size: 1.1rem;
 }
 
 .successMessage {
@@ -80,14 +95,16 @@
 }
 
 .successMessage h3 {
-    font-size: 1.75rem;
+    font-size: 2rem;
     color: var(--color-primary);
     margin-bottom: 1rem;
+    font-weight: 700;
 }
 
 .successMessage p {
     color: #555;
     margin-bottom: 2rem;
+    font-size: 1.1rem;
 }
 
 @media (max-width: 600px) {

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
 import Button from '../components/Button';
+import ScrollReveal from '../components/ScrollReveal';
 import styles from './RequestQuote.module.css';
 
 const RequestQuote = () => {
@@ -29,27 +29,18 @@ const RequestQuote = () => {
     return (
         <section className={styles.section}>
             <div className={`container ${styles.container}`}>
-                <motion.div
-                    className={styles.content}
-                    initial={{ opacity: 0, scale: 0.95 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.6 }}
-                >
+                <ScrollReveal variant="slideUp" className={styles.content}>
                     <h1 className={styles.title}>Start Your Transformation</h1>
                     <p className={styles.subtitle}>
                         Tell us about your vision. We'll engineer the logic to make it magical.
                     </p>
 
                     {submitted ? (
-                        <motion.div
-                            className={styles.successMessage}
-                            initial={{ opacity: 0, y: 10 }}
-                            animate={{ opacity: 1, y: 0 }}
-                        >
+                        <div className={styles.successMessage}>
                             <h3>✨ Quote Request Sent!</h3>
                             <p>We've received your project details. A VeloGenie strategist will contact you within 24 hours.</p>
                             <Button href="/" variant="primary">Return Home</Button>
-                        </motion.div>
+                        </div>
                     ) : (
                         <form onSubmit={handleSubmit} className={styles.form}>
                             <div className={styles.row}>
@@ -141,7 +132,7 @@ const RequestQuote = () => {
                             </Button>
                         </form>
                     )}
-                </motion.div>
+                </ScrollReveal>
             </div>
         </section>
     );

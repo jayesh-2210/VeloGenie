@@ -1,22 +1,30 @@
 :root {
-    --font-heading: 'Inter', sans-serif;
-    --font-body: 'Roboto', sans-serif;
-    --color-bg: #ffffff;
-    --color-text: #1a1a1a;
-    --color-primary: #0066cc;
-    /* Electric Blue */
-    --color-secondary: #333333;
-    /* Dark Slate */
-    --wrapper-max-width: 1280px;
+    --font-primary: 'Quicksand', sans-serif;
+
+    /* Color Palette - Calm Cup Style */
+    --color-primary: #12554B;
+    /* Deep Teal */
+    --color-secondary: #FFFFFF;
+    /* White */
+    --color-accent: #F4F4F4;
+    /* Light Gray */
+    --color-text: #333333;
+    /* Charcoal */
+    --color-heading: #12554B;
+    /* Deep Teal for headings */
+
+    --wrapper-max-width: 1200px;
+    --transition-speed: 0.3s;
 }
 
 body {
     margin: 0;
-    font-family: var(--font-body);
-    background-color: var(--color-bg);
+    font-family: var(--font-primary);
+    background-color: var(--color-secondary);
     color: var(--color-text);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    line-height: 1.6;
 }
 
 h1,
@@ -25,13 +33,16 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: var(--font-heading);
+    font-family: var(--font-primary);
+    color: var(--color-heading);
     margin: 0;
+    font-weight: 700;
 }
 
 a {
     color: inherit;
     text-decoration: none;
+    transition: color var(--transition-speed) ease;
 }
 
 * {
@@ -42,15 +53,17 @@ a {
 .container {
     max-width: var(--wrapper-max-width);
     margin: 0 auto;
-    padding: 0 1rem;
+    padding: 0 15px;
+    /* Consistent side padding */
 }
 
 .section {
-    padding: 4rem 0;
+    padding: 80px 0;
+    /* Consistent vertical spacing */
 }
 
 @media (max-width: 768px) {
     .section {
-        padding: 2.5rem 0;
+        padding: 50px 0;
     }
 }

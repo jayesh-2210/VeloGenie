@@ -1,14 +1,16 @@
 .footer {
-    background-color: #1a1a1a;
-    color: #e0e0e0;
-    padding: 5rem 0 2rem;
+    background-color: var(--color-primary);
+    /* Deep Teal */
+    color: #ffffff;
+    padding: 80px 0 40px;
     position: relative;
+    font-size: 0.95rem;
 }
 
 .container {
     max-width: var(--wrapper-max-width);
     margin: 0 auto;
-    padding: 0 2rem;
+    padding: 0 15px;
 }
 
 .top {
@@ -19,39 +21,48 @@
     margin-bottom: 4rem;
 }
 
+.brand {
+    max-width: 300px;
+}
+
 .logo {
-    font-size: 1.5rem;
+    font-size: 1.75rem;
+    font-weight: 700;
     color: white;
-    margin-bottom: 0.5rem;
+    margin-bottom: 1rem;
+    letter-spacing: -0.5px;
 }
 
 .tagline {
-    font-size: 0.9rem;
-    color: #888;
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.6;
 }
 
 .links {
     display: flex;
-    gap: 4rem;
+    gap: 5rem;
     flex-wrap: wrap;
 }
 
 .column h4 {
-    color: white;
+    color: #ffffff;
     margin-bottom: 1.5rem;
-    font-size: 1rem;
+    font-size: 1.1rem;
+    font-weight: 600;
 }
 
 .column a {
     display: block;
-    color: #888;
-    margin-bottom: 0.75rem;
-    font-size: 0.9rem;
-    transition: color 0.2s;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 0.8rem;
+    font-size: 0.95rem;
+    transition: all 0.2s ease;
 }
 
 .column a:hover {
-    color: white;
+    color: #ffffff;
+    transform: translateX(5px);
 }
 
 .socials {
@@ -60,15 +71,24 @@
 }
 
 .socials a {
-    font-size: 1.25rem;
+    font-size: 1.4rem;
+    color: white;
+    opacity: 0.8;
+    transition: opacity 0.2s;
+    margin-bottom: 0;
+}
+
+.socials a:hover {
+    opacity: 1;
+    transform: none;
 }
 
 .bottom {
-    border-top: 1px solid #333;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
     padding-top: 2rem;
     text-align: center;
-    font-size: 0.8rem;
-    color: #666;
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.6);
 }
 
 .stickyCta {
@@ -79,8 +99,22 @@
 }
 
 .stickyButton {
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
     padding: 1rem 2rem;
+    background-color: white !important;
+    color: var(--color-primary) !important;
+    font-weight: 700 !important;
+}
+
+.stickyButton:hover {
+    background-color: #f0fbff !important;
+    transform: translateY(-2px);
+}
+
+@media (max-width: 900px) {
+    .links {
+        gap: 2rem;
+    }
 }
 
 @media (max-width: 768px) {
@@ -90,18 +124,18 @@
     }
 
     .links {
-        gap: 2rem;
         width: 100%;
         justify-content: space-between;
     }
 
     .stickyCta {
-        bottom: 1rem;
-        right: 1rem;
-        left: 1rem;
+        bottom: 1.5rem;
+        right: 1.5rem;
+        left: 1.5rem;
     }
 
     .stickyButton {
         width: 100%;
+        text-align: center;
     }
 }
