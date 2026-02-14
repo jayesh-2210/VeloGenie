@@ -1,7 +1,7 @@
 import React from 'react';
 import Button from '../components/Button';
 import styles from './Footer.module.css';
-import { FaLinkedin, FaTwitter, FaGithub } from 'react-icons/fa';
+import { FaLinkedin, FaTwitter, FaGithub, FaWhatsapp } from 'react-icons/fa';
 
 const Footer = () => {
     return (
@@ -30,9 +30,8 @@ const Footer = () => {
                             <h4>Contact</h4>
                             <p style={{ fontSize: '0.95rem', color: 'rgba(255, 255, 255, 0.7)', lineHeight: '1.6' }}>
                                 <strong>Registered Office:</strong><br />
-                                IIM Bangalore,<br />
-                                Bannerghatta Road,<br />
-                                Bengaluru, Karnataka 560076
+                                Whitefield,<br />
+                                Bangalore
                             </p>
                         </div>
                         <div className={styles.column}>
@@ -53,7 +52,15 @@ const Footer = () => {
 
             {/* Sticky Request Quote Button (Mobile optimized but visible everywhere) */}
             <div className={styles.stickyCta}>
-                <Button href="/quote" className={styles.stickyButton}>Request a Quote</Button>
+                <Button
+                    href="https://wa.me/9016664663"
+                    className={styles.stickyButton}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    <FaWhatsapp size={20} style={{ marginRight: '8px' }} />
+                    Chat With Us
+                </Button>
             </div>
         </footer>
     );

@@ -17,6 +17,20 @@ const Header = () => {
 
     const handleNavClick = (e, path) => {
         e.preventDefault();
+
+        if (path.startsWith('/#')) {
+            const hash = path.substring(1); // #section
+            const targetId = hash.substring(1); // section
+
+            if (window.location.pathname === '/') {
+                const element = document.getElementById(targetId);
+                if (element) {
+                    element.scrollIntoView({ behavior: 'smooth' });
+                    return;
+                }
+            }
+        }
+
         startTransition(path);
     };
 
@@ -31,7 +45,8 @@ const Header = () => {
 
             <nav className={styles.nav}>
                 <a href="/about" onClick={(e) => handleNavClick(e, '/about')} className={styles.navLink}>About</a>
-                <a href="/why-speed-matters" onClick={(e) => handleNavClick(e, '/why-speed-matters')} className={styles.navLink}>Why Speed Matters</a>
+                <a href="/#why-speed-matters" onClick={(e) => handleNavClick(e, '/#why-speed-matters')} className={styles.navLink}>Why Speed Matters</a>
+                <a href="/services" onClick={(e) => handleNavClick(e, '/services')} className={styles.navLink}>The Genie Tiers</a>
                 <a href="/audit" onClick={(e) => handleNavClick(e, '/audit')} className={styles.navLink}>Technical Audit</a>
                 <a href="/careers" onClick={(e) => handleNavClick(e, '/careers')} className={styles.navLink}>Careers</a>
                 <a href="/quote" onClick={(e) => handleNavClick(e, '/quote')} className={styles.ctaButton}>Get a Quote</a>

@@ -5,20 +5,20 @@ import styles from './Services.module.css';
 
 const tiers = [
     {
-        title: 'LaunchPad',
-        subtitle: 'For Freelancers & Small Biz',
-        description: 'Quick, SEO-optimized landing pages to get you started.',
-        features: ['Single Page Application', 'SEO Optimization', 'Contact Form', '1 Week Delivery'],
+        title: 'Starter',
+        subtitle: 'For Individuals & Startups',
+        description: 'Launch your idea with a professional landing page.',
+        features: ['One Page Website', 'Mobile Friendly', 'Basic SEO', 'Fast Delivery'],
         price: 'Starting at ₹5,000',
         color: '#0066cc',
         icon: '/src/assets/service-launchpad.png',
         delay: 0
     },
     {
-        title: 'ScaleUp',
-        subtitle: 'For Medium Enterprises',
-        description: 'Dynamic E-commerce & CMS solutions for growing businesses.',
-        features: ['Custom CMS / E-commerce', 'User Authentication', 'Payment Integration', 'Analytics Dashboard'],
+        title: 'Growth',
+        subtitle: 'For Growing Businesses',
+        description: 'Expand with a full-featured website or online store.',
+        features: ['Multiple Pages / CMS', 'E-commerce Ready', 'Analytics Integration', 'Blog Setup'],
         price: 'Custom Quote',
         color: '#333333',
         featured: true,
@@ -26,10 +26,10 @@ const tiers = [
         delay: 0.2
     },
     {
-        title: 'Enterprise Forge',
-        subtitle: 'For Large Corporations',
-        description: 'High-security, microservices-led custom web architectures.',
-        features: ['Microservices Architecture', 'High Security & Compliance', '99.9% Uptime SLA', 'Dedicated Support Team'],
+        title: 'Enterprise',
+        subtitle: 'For Large Organizations',
+        description: 'Custom solutions for complex requirements at scale.',
+        features: ['Custom Application', 'Advanced Security', 'High Performance', 'Dedicated Support'],
         price: 'Custom Quote',
         color: '#000000',
         icon: '/src/assets/service-enterprise.png',

@@ -45,7 +45,7 @@ const AboutUs = () => {
                                 scrolling="no"
                                 marginHeight="0"
                                 marginWidth="0"
-                                src="https://maps.google.com/maps?width=100%25&height=400&hl=en&q=IIM%20Bangalore&t=&z=14&ie=UTF8&iwloc=B&output=embed"
+                                src="https://maps.google.com/maps?width=100%25&height=400&hl=en&q=Whitefield%20Bangalore&t=&z=14&ie=UTF8&iwloc=B&output=embed"
                                 style={{ filter: 'grayscale(20%)' }}
                                 title="VeloGenie HQ Location"
                             ></iframe>
@@ -83,7 +83,7 @@ const AboutUs = () => {
                     </ScrollReveal>
 
                     <div className={styles.teamGrid}>
-                        {['Varun Ahankari', 'Jayesh Gupta'].map((member, index) => (
+                        {['Varun Ahankari', 'Vishal Ahankari'].map((member, index) => (
                             <ScrollReveal
                                 key={index}
                                 variant="slideUp"

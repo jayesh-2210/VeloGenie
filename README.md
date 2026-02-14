@@ -71,13 +71,13 @@ VeloGenie/
 ## 👥 Founders
 
 -   **Varun Ahankari** - Co-Founder
--   **Jayesh Gupta** - Co-Founder
+-   **Vishal Ahankari** - Co-Founder
 
 ## 📍 Location
 
 **VeloGenie HQ**  
-Indian Institute of Management Bangalore (IIMB)  
-Bannerghatta Road, Bengaluru, Karnataka 560076
+Whitefield,  
+Bangalore
 
 ## 📄 License
 

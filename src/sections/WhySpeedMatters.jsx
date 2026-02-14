@@ -2,10 +2,11 @@ import React from 'react';
 import Button from '../components/Button';
 import ScrollReveal from '../components/ScrollReveal';
 import styles from './WhySpeedMatters.module.css';
+import { FiActivity, FiUsers, FiTrendingUp } from 'react-icons/fi';
 
 const WhySpeedMatters = () => {
     return (
-        <section className={styles.section}>
+        <section className={styles.section} id="why-speed-matters">
             <div className={styles.container}>
                 <ScrollReveal variant="slideUp" className={styles.header}>
                     <h1 className={styles.title}>Speed is Currency</h1>
@@ -17,7 +18,10 @@ const WhySpeedMatters = () => {
 
                 <div className={styles.grid}>
                     <ScrollReveal variant="slideUp" delay={0.1} className={styles.card}>
-                        <h3 className={styles.cardTitle}>🚀 SEO Dominance</h3>
+                        <div className={styles.iconContainer}>
+                            <FiActivity />
+                        </div>
+                        <h3 className={styles.cardTitle}>SEO Dominance</h3>
                         <p className={styles.cardText}>
                             Core Web Vitals are now a major ranking factor. Google prioritizes
                             fast-loading sites because they offer better user experiences.
@@ -26,7 +30,10 @@ const WhySpeedMatters = () => {
                     </ScrollReveal>
 
                     <ScrollReveal variant="slideUp" delay={0.2} className={styles.card}>
-                        <h3 className={styles.cardTitle}>💎 User Retention</h3>
+                        <div className={styles.iconContainer}>
+                            <FiUsers />
+                        </div>
+                        <h3 className={styles.cardTitle}>User Retention</h3>
                         <p className={styles.cardText}>
                             53% of mobile users abandon sites that take longer than 3 seconds to load.
                             A snappy interface builds trust and keeps users engaged with your content longer.
@@ -34,7 +41,10 @@ const WhySpeedMatters = () => {
                     </ScrollReveal>
 
                     <ScrollReveal variant="slideUp" delay={0.3} className={styles.card}>
-                        <h3 className={styles.cardTitle}>💰 Conversion Rates</h3>
+                        <div className={styles.iconContainer}>
+                            <FiTrendingUp />
+                        </div>
+                        <h3 className={styles.cardTitle}>Conversion Rates</h3>
                         <p className={styles.cardText}>
                             Every 100ms delay in load time can hurt conversion rates by 7%.
                             For an e-commerce site, speed optimization is the highest ROI investment you can make.
@@ -44,7 +54,7 @@ const WhySpeedMatters = () => {
 
                 <ScrollReveal variant="zoomIn" className={styles.cta}>
                     <h2 className={styles.ctaText}>Ready to Accelerate?</h2>
-                    <Button href="/quote" variant="secondary">
+                    <Button href="/quote" variant="white" className={styles.ctaButton}>
                         Get a Free Speed Audit
                     </Button>
                 </ScrollReveal>

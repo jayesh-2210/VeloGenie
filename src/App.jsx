@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, useLocation } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
 import './styles/GlobalStyles.css';
 import Header from './components/Header';
@@ -22,8 +22,8 @@ function Layout() {
     return (
         <div className="app">
             <Hero />
+            <WhySpeedMatters />
             <ProblemSolution />
-            <Services />
             <Advantage />
             <Footer />
         </div>
@@ -84,17 +84,41 @@ function CareersPage() {
     );
 }
 
+function ServicesPage() {
+    return (
+        <div className="app">
+            <Services />
+            <Footer />
+        </div>
+    );
+}
+
 // Create a wrapper component to consume the context
 const AppContent = () => {
     const { isLoading, completedTransition } = useTransition();
+
+    const { pathname, hash } = useLocation();
 
     useEffect(() => {
         if (isLoading) {
             document.body.style.overflow = 'hidden';
         } else {
             document.body.style.overflow = 'unset';
+
+            // Handle scrolling after loading is complete
+            if (hash) {
+                const id = hash.replace('#', '');
+                const element = document.getElementById(id);
+                if (element) {
+                    setTimeout(() => {
+                        element.scrollIntoView({ behavior: 'smooth' });
+                    }, 100);
+                }
+            } else {
+                window.scrollTo(0, 0);
+            }
         }
-    }, [isLoading]);
+    }, [isLoading, pathname, hash]);
 
     return (
         <>
@@ -108,6 +132,7 @@ const AppContent = () => {
                     <Header />
                     <Routes>
                         <Route path="/" element={<Layout />} />
+                        <Route path="/services" element={<ServicesPage />} />
                         <Route path="/audit" element={<AuditPage />} />
                         <Route path="/quote" element={<QuotePage />} />
                         <Route path="/why-speed-matters" element={<SpeedPage />} />

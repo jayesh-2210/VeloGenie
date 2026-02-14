@@ -31,3 +31,14 @@
 .secondary:hover {
     background-color: rgba(0, 102, 204, 0.1);
 }
+
+.white {
+    background-color: white;
+    color: var(--color-primary);
+    border: 2px solid white;
+}
+
+.white:hover {
+    background-color: transparent;
+    color: white;
+}

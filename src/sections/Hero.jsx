@@ -1,12 +1,13 @@
 import React from 'react';
 import Button from '../components/Button';
 import ScrollReveal from '../components/ScrollReveal';
-import heroImage from '../assets/hero-image.png';
+import heroImage from '../assets/hero-3d.png';
 import styles from './Hero.module.css';
 
 const Hero = () => {
     return (
-        <section className={styles.hero}>
+        <section className={styles.hero} style={{ backgroundImage: `url(${heroImage})` }}>
+            <div className={styles.overlay}></div>
             <div className={`container ${styles.container}`}>
                 <div className={styles.content}>
                     <ScrollReveal variant="slideUp">
@@ -28,12 +29,6 @@ const Hero = () => {
                         </div>
                     </ScrollReveal>
                 </div>
-
-                <ScrollReveal variant="zoomIn" delay={0.3} className={styles.visual}>
-                    <div className={styles.imageWrapper}>
-                        <img src={heroImage} alt="High-performance digital ecosystem" className={styles.heroImage} />
-                    </div>
-                </ScrollReveal>
             </div>
         </section>
     );
