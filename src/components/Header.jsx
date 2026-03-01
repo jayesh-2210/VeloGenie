@@ -6,6 +6,7 @@ import styles from './Header.module.css';
 
 const Header = () => {
     const [scrolled, setScrolled] = useState(false);
+    const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const { startTransition } = useTransition();
 
     useEffect(() => {
@@ -18,6 +19,7 @@ const Header = () => {
 
     const handleNavClick = (e, path) => {
         e.preventDefault();
+        setMobileMenuOpen(false); // Close menu when a link is clicked on mobile
 
         if (path.startsWith('/#')) {
             const hash = path.substring(1); // #section
@@ -42,15 +44,25 @@ const Header = () => {
             animate={{ y: 0 }}
             transition={{ type: 'spring', stiffness: 100, damping: 20, delay: 0.2 }}
             style={{
-                padding: scrolled ? '1rem 2rem' : '1.5rem 2rem',
+                padding: scrolled && window.innerWidth > 768 ? '1rem 2rem' : (window.innerWidth > 768 ? '1.5rem 2rem' : undefined),
                 background: scrolled ? 'rgba(255, 255, 255, 0.98)' : 'rgba(255, 255, 255, 0.9)'
             }}
         >
-            <a href="/" onClick={(e) => handleNavClick(e, '/')} className={styles.logo}>
+            <a href="/" onClick={(e) => handleNavClick(e, '/')} className={styles.logo} style={{ zIndex: 1001 }}>
                 <img src="/assets/logo-transparent.png" alt="VeloGenie Tech Solutions" className={styles.logoImg} />
             </a>
 
-            <nav className={styles.nav}>
+            <button
+                className={`${styles.hamburger} ${mobileMenuOpen ? styles.open : ''}`}
+                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                aria-label="Toggle menu"
+            >
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <nav className={`${styles.nav} ${mobileMenuOpen ? styles.open : ''}`}>
                 <a href="/about" onClick={(e) => handleNavClick(e, '/about')} className={styles.navLink}>About</a>
                 <a href="/#why-speed-matters" onClick={(e) => handleNavClick(e, '/#why-speed-matters')} className={styles.navLink}>Why Speed Matters</a>
                 <a href="/services" onClick={(e) => handleNavClick(e, '/services')} className={styles.navLink}>The Genie Tiers</a>

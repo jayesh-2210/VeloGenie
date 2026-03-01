@@ -3,12 +3,16 @@ import { motion } from 'framer-motion';
 import Button from '../components/Button';
 import styles from './CaseStudies.module.css';
 
+import caseEcommerce from '../assets/case-ecommerce.png';
+import caseFintech from '../assets/case-fintech.png';
+import caseCoffee from '../assets/case-coffee.png';
+
 const projects = [
     {
         title: 'Ecommerce Giant Replatform',
         category: 'Enterprise Forge',
         description: 'Migrated a monolithic Magento store to a headless Next.js architecture. Reduced load time by 65% and increased mobile conversions by 40%.',
-        image: '/src/assets/case-ecommerce.png',
+        image: caseEcommerce,
         stats: [
             { label: 'Load Time', value: '-65%' },
             { label: 'Conversion', value: '+40%' }
@@ -18,7 +22,7 @@ const projects = [
         title: 'FinTech Dashboard',
         category: 'ScaleUp',
         description: 'Real-time analytics dashboard for a crypto trading platform. Implemented WebSocket connections for sub-millisecond data updates.',
-        image: '/src/assets/case-fintech.png',
+        image: caseFintech,
         stats: [
             { label: 'Latency', value: '<50ms' },
             { label: 'Uptime', value: '99.99%' }
@@ -28,7 +32,7 @@ const projects = [
         title: 'Artisan Coffee Roasters',
         category: 'LaunchPad',
         description: 'Single-page application for a local coffee brand. Integrated custom booking form for workshops and SEO optimization for local search.',
-        image: '/src/assets/case-coffee.png',
+        image: caseCoffee,
         stats: [
             { label: 'Traffic', value: '+200%' },
             { label: 'Leads', value: '15/mo' }

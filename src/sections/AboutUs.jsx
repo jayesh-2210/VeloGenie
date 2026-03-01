@@ -61,7 +61,10 @@ const AboutUs = () => {
                     </ScrollReveal>
 
                     <div className={styles.teamGrid}>
-                        {['Varun Ahankari', 'Jayesh Gupta'].map((member, index) => (
+                        {[
+                            { name: 'Varun Ahankari', role: 'Chief Executive Officer' },
+                            { name: 'Jayesh Gupta', role: 'Chief Technology Officer' }
+                        ].map((member, index) => (
                             <ScrollReveal
                                 key={index}
                                 variant="slideUp"
@@ -81,10 +84,10 @@ const AboutUs = () => {
                                     color: 'var(--color-primary)',
                                     fontSize: '2rem'
                                 }}>
-                                    {member.split(' ').map(n => n[0]).join('')}
+                                    {member.name.split(' ').map(n => n[0]).join('')}
                                 </div>
-                                <h4 className={styles.memberName}>{member}</h4>
-                                <p className={styles.memberRole}>Co-Founder</p>
+                                <h4 className={styles.memberName}>{member.name}</h4>
+                                <p className={styles.memberRole}>{member.role}</p>
                             </ScrollReveal>
                         ))}
                     </div>
