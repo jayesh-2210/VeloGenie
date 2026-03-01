@@ -2,6 +2,9 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import Button from '../components/Button';
 import styles from './Services.module.css';
+import serviceLaunchpadImg from '../assets/service-launchpad.png';
+import serviceScaleupImg from '../assets/service-scaleup.png';
+import serviceEnterpriseImg from '../assets/service-enterprise.png';
 
 const tiers = [
     {
@@ -11,7 +14,7 @@ const tiers = [
         features: ['One Page Website', 'Mobile Friendly', 'Basic SEO', 'Fast Delivery'],
         price: 'Starting at ₹5,000',
         color: '#0066cc',
-        icon: '/src/assets/service-launchpad.png',
+        icon: serviceLaunchpadImg,
         delay: 0
     },
     {
@@ -22,7 +25,7 @@ const tiers = [
         price: 'Custom Quote',
         color: '#333333',
         featured: true,
-        icon: '/src/assets/service-scaleup.png',
+        icon: serviceScaleupImg,
         delay: 0.2
     },
     {
@@ -32,7 +35,7 @@ const tiers = [
         features: ['Custom Application', 'Advanced Security', 'High Performance', 'Dedicated Support'],
         price: 'Custom Quote',
         color: '#000000',
-        icon: '/src/assets/service-enterprise.png',
+        icon: serviceEnterpriseImg,
         delay: 0.4
     }
 ];

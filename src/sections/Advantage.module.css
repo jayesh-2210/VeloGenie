@@ -36,14 +36,15 @@
 .imageWrapper {
     margin-bottom: 2rem;
     border-radius: 16px;
-    overflow: hidden;
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-    transform: rotate(-1deg);
     transition: transform 0.3s ease;
+    /* Added rendering properties for cross browser support */
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
 }
 
 .imageWrapper:hover {
-    transform: rotate(0deg);
+    transform: translateY(-5px);
 }
 
 .statsGrid {

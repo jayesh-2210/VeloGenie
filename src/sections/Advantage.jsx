@@ -2,6 +2,7 @@ import React from 'react';
 import Button from '../components/Button';
 import ScrollReveal from '../components/ScrollReveal';
 import styles from './Advantage.module.css';
+import advantageSpeedImg from '../assets/advantage-speed.png';
 
 const stats = [
     { label: 'LCP (Largest Contentful Paint)', value: '< 1.2s', desc: 'Lightning fast loading' },
@@ -25,7 +26,7 @@ const Advantage = () => {
 
                     <ScrollReveal variant="zoomIn" delay={0.2} className={styles.imageWrapper}>
                         <img
-                            src="/src/assets/advantage-speed.png"
+                            src={advantageSpeedImg}
                             alt="Speed Advantage"
                             style={{ width: '100%', display: 'block' }}
                         />
