@@ -1,12 +1,38 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import Button from '../components/Button';
 import ScrollReveal from '../components/ScrollReveal';
-import heroImage from '../assets/hero-3d.png';
+
+import heroImage1 from '../assets/hero-3d.png';
+import heroImage2 from '../assets/hero-image.png';
+import heroImage3 from '../assets/service-enterprise.png';
 import styles from './Hero.module.css';
 
+const bgImages = [heroImage1, heroImage2, heroImage3];
+
 const Hero = () => {
+    const [currentBg, setCurrentBg] = useState(0);
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setCurrentBg((prev) => (prev + 1) % bgImages.length);
+        }, 5000); // Change image every 5 seconds
+        return () => clearInterval(interval);
+    }, []);
+
     return (
-        <section className={styles.hero} style={{ backgroundImage: `url(${heroImage})` }}>
+        <section className={styles.hero}>
+            <AnimatePresence>
+                <motion.div
+                    key={currentBg}
+                    className={styles.bgImage}
+                    style={{ backgroundImage: `url(${bgImages[currentBg]})` }}
+                    initial={{ opacity: 0, scale: 1.1 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 1.5, ease: "easeInOut" }}
+                />
+            </AnimatePresence>
             <div className={styles.overlay}></div>
             <div className={`container ${styles.container}`}>
                 <div className={styles.content}>

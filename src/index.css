@@ -1,17 +1,15 @@
 :root {
     --font-primary: 'Quicksand', sans-serif;
 
-    /* Color Palette - Calm Cup Style */
-    --color-primary: #12554B;
-    /* Deep Teal */
+    /* Color Palette - Blue Theme */
+    --color-primary: #2BA3B6;
+    --color-gold: #D4A843;
+    --color-dark: #0A1628;
+    --color-dark-alt: #0E1E36;
     --color-secondary: #FFFFFF;
-    /* White */
-    --color-accent: #F4F4F4;
-    /* Light Gray */
-    --color-text: #333333;
-    /* Charcoal */
-    --color-heading: #12554B;
-    /* Deep Teal for headings */
+    --color-accent: #111D33;
+    --color-text: #b0c4de;
+    --color-heading: #ffffff;
 
     --wrapper-max-width: 1200px;
     --transition-speed: 0.3s;
@@ -20,7 +18,7 @@
 body {
     margin: 0;
     font-family: var(--font-primary);
-    background-color: var(--color-secondary);
+    background-color: var(--color-dark);
     color: var(--color-text);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -49,21 +47,8 @@ a {
     box-sizing: border-box;
 }
 
-/* Utility Classes */
 .container {
     max-width: var(--wrapper-max-width);
     margin: 0 auto;
     padding: 0 15px;
-    /* Consistent side padding */
-}
-
-.section {
-    padding: 80px 0;
-    /* Consistent vertical spacing */
-}
-
-@media (max-width: 768px) {
-    .section {
-        padding: 50px 0;
-    }
 }

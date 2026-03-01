@@ -2,24 +2,30 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1.5rem 2rem;
+    padding: 0.75rem 2.5rem;
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     z-index: 1000;
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(10px);
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    background: rgba(255, 255, 255, 0.97);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.06);
     transition: transform 0.3s ease;
+    min-height: 72px;
 }
 
 .logo {
-    font-size: 1.5rem;
-    font-weight: 800;
-    color: var(--color-primary);
+    display: flex;
+    align-items: center;
     text-decoration: none;
-    letter-spacing: -0.02em;
+    flex-shrink: 0;
+}
+
+.logoImg {
+    height: 65px;
+    width: auto;
+    object-fit: contain;
 }
 
 .nav {
@@ -29,10 +35,12 @@
 }
 
 .navLink {
-    color: var(--color-text);
-    font-weight: 500;
-    font-size: 0.95rem;
+    color: #333;
+    font-weight: 600;
+    font-size: 0.9rem;
     transition: color 0.2s ease;
+    white-space: nowrap;
+    letter-spacing: 0.01em;
 }
 
 .navLink:hover {
@@ -42,20 +50,30 @@
 .ctaButton {
     background-color: var(--color-primary);
     color: white;
-    padding: 0.6rem 1.2rem;
+    padding: 0.6rem 1.4rem;
     border-radius: 50px;
     font-weight: 700;
     font-size: 0.9rem;
     transition: transform 0.2s ease, background-color 0.2s ease;
+    white-space: nowrap;
 }
 
 .ctaButton:hover {
     transform: translateY(-2px);
-    background-color: #08332c;
+    background-color: #238A9A;
 }
 
 @media (max-width: 768px) {
+    .header {
+        padding: 0.5rem 1.25rem;
+        min-height: 60px;
+    }
+
     .nav {
         display: none;
+    }
+
+    .logoImg {
+        height: 42px;
     }
 }

@@ -29,28 +29,6 @@ const AboutUs = () => {
                         </p>
                         <Button href="/quote" variant="primary">Work With Us</Button>
                     </ScrollReveal>
-
-                    <ScrollReveal variant="slideRight" className={styles.imageWrapper}>
-                        <div style={{
-                            width: '100%',
-                            height: '400px',
-                            background: '#f0f0f0',
-                            borderRadius: '20px',
-                            overflow: 'hidden',
-                        }}>
-                            <iframe
-                                width="100%"
-                                height="100%"
-                                frameBorder="0"
-                                scrolling="no"
-                                marginHeight="0"
-                                marginWidth="0"
-                                src="https://maps.google.com/maps?width=100%25&height=400&hl=en&q=Whitefield%20Bangalore&t=&z=14&ie=UTF8&iwloc=B&output=embed"
-                                style={{ filter: 'grayscale(20%)' }}
-                                title="VeloGenie HQ Location"
-                            ></iframe>
-                        </div>
-                    </ScrollReveal>
                 </div>
 
                 <div className={styles.statsGrid}>
@@ -75,15 +53,15 @@ const AboutUs = () => {
                 <div className={styles.teamSection}>
                     <ScrollReveal variant="slideUp">
                         <h3
-                            style={{ fontSize: '2.5rem', marginBottom: '20px', color: 'var(--color-heading)' }}
+                            style={{ fontSize: '2.5rem', marginBottom: '20px', color: '#ffffff' }}
                         >
                             The Neural Network
                         </h3>
-                        <p style={{ color: '#666' }}>The minds behind the magic.</p>
+                        <p style={{ color: '#a0b4cc' }}>The minds behind the magic.</p>
                     </ScrollReveal>
 
                     <div className={styles.teamGrid}>
-                        {['Varun Ahankari', 'Vishal Ahankari'].map((member, index) => (
+                        {['Varun Ahankari', 'Jayesh Gupta'].map((member, index) => (
                             <ScrollReveal
                                 key={index}
                                 variant="slideUp"
@@ -94,7 +72,7 @@ const AboutUs = () => {
                                     width: '100px',
                                     height: '100px',
                                     borderRadius: '50%',
-                                    background: '#e0f2f1',
+                                    background: 'rgba(43, 163, 182, 0.15)',
                                     margin: '0 auto 20px',
                                     display: 'flex',
                                     alignItems: 'center',

@@ -10,7 +10,7 @@
     cursor: pointer;
     border: none;
     text-decoration: none;
-    transition: background-color 0.3s ease, color 0.3s ease;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
 }
 
 .primary {
@@ -19,7 +19,8 @@
 }
 
 .primary:hover {
-    background-color: #005bb5;
+    background-color: #238A9A;
+    transform: translateY(-2px);
 }
 
 .secondary {
@@ -29,12 +30,12 @@
 }
 
 .secondary:hover {
-    background-color: rgba(0, 102, 204, 0.1);
+    background-color: rgba(43, 163, 182, 0.15);
 }
 
 .white {
     background-color: white;
-    color: var(--color-primary);
+    color: #0A1628;
     border: 2px solid white;
 }
 

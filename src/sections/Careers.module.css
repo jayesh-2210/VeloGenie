@@ -1,9 +1,8 @@
 .section {
     padding: 120px 0;
     min-height: 100vh;
-    background-color: var(--color-accent);
-    /* Light Gray */
-    color: var(--color-text);
+    background-color: #0E1E36;
+    color: #b0c4de;
 }
 
 .container {
@@ -20,13 +19,13 @@
 .title {
     font-size: 3rem;
     margin-bottom: 1.5rem;
-    color: var(--color-heading);
+    color: #ffffff;
     font-weight: 700;
 }
 
 .subtitle {
     font-size: 1.25rem;
-    color: #666;
+    color: #8899aa;
     max-width: 700px;
     margin: 0 auto;
     line-height: 1.6;
@@ -40,16 +39,17 @@
 }
 
 .cultureItem {
-    background: white;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.06);
     padding: 2.5rem;
     border-radius: 16px;
     text-align: center;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
     transition: transform 0.3s ease;
 }
 
 .cultureItem:hover {
     transform: translateY(-5px);
+    border-color: rgba(43, 163, 182, 0.2);
 }
 
 .cultureIcon {
@@ -59,14 +59,14 @@
 }
 
 .cultureTitle {
-    color: var(--color-heading);
+    color: #ffffff;
     margin-bottom: 0.75rem;
     font-size: 1.25rem;
     font-weight: 700;
 }
 
 .cultureText {
-    color: #666;
+    color: #8899aa;
     font-size: 0.95rem;
     line-height: 1.6;
 }
@@ -78,26 +78,24 @@
 }
 
 .jobCard {
-    background: white;
-    border: 1px solid rgba(0, 0, 0, 0.05);
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.06);
     padding: 2rem;
     border-radius: 16px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     transition: all 0.2s ease;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.02);
 }
 
 .jobCard:hover {
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.06);
-    border-color: rgba(18, 85, 75, 0.2);
+    border-color: rgba(43, 163, 182, 0.3);
     transform: translateX(5px);
 }
 
 .jobInfo h3 {
     font-size: 1.35rem;
-    color: var(--color-heading);
+    color: #ffffff;
     margin-bottom: 0.5rem;
     font-weight: 700;
 }
@@ -105,13 +103,13 @@
 .jobMeta {
     display: flex;
     gap: 1rem;
-    color: #777;
+    color: #8899aa;
     font-size: 0.9rem;
     font-weight: 500;
 }
 
 .applyButton {
-    background: white;
+    background: transparent;
     border: 2px solid var(--color-primary);
     color: var(--color-primary);
     padding: 0.75rem 1.75rem;

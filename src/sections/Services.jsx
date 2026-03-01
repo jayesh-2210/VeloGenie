@@ -58,8 +58,9 @@ const Services = () => {
                             className={`${styles.card} ${tier.featured ? styles.featured : ''}`}
                             initial={{ opacity: 0, y: 30 }}
                             whileInView={{ opacity: 1, y: 0 }}
+                            whileHover={{ scale: 1.05, y: -10 }}
                             viewport={{ once: true }}
-                            transition={{ delay: tier.delay }}
+                            transition={{ delay: tier.delay, type: 'spring', stiffness: 300, damping: 20 }}
                         >
                             <div className={styles.cardContent}>
                                 <div style={{ height: '80px', marginBottom: '20px', display: 'flex', alignItems: 'center' }}>

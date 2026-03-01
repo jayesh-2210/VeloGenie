@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom'; // Keep Link for accessibility, but prevent default
+import { motion } from 'framer-motion';
 import { useTransition } from '../context/TransitionContext';
 import styles from './Header.module.css';
 
@@ -35,12 +36,18 @@ const Header = () => {
     };
 
     return (
-        <header className={styles.header} style={{
-            padding: scrolled ? '1rem 2rem' : '1.5rem 2rem',
-            background: scrolled ? 'rgba(255, 255, 255, 0.98)' : 'rgba(255, 255, 255, 0.9)'
-        }}>
+        <motion.header
+            className={styles.header}
+            initial={{ y: -100 }}
+            animate={{ y: 0 }}
+            transition={{ type: 'spring', stiffness: 100, damping: 20, delay: 0.2 }}
+            style={{
+                padding: scrolled ? '1rem 2rem' : '1.5rem 2rem',
+                background: scrolled ? 'rgba(255, 255, 255, 0.98)' : 'rgba(255, 255, 255, 0.9)'
+            }}
+        >
             <a href="/" onClick={(e) => handleNavClick(e, '/')} className={styles.logo}>
-                VeloGenie
+                <img src="/assets/logo-transparent.png" alt="VeloGenie Tech Solutions" className={styles.logoImg} />
             </a>
 
             <nav className={styles.nav}>
@@ -51,7 +58,7 @@ const Header = () => {
                 <a href="/careers" onClick={(e) => handleNavClick(e, '/careers')} className={styles.navLink}>Careers</a>
                 <a href="/quote" onClick={(e) => handleNavClick(e, '/quote')} className={styles.ctaButton}>Get a Quote</a>
             </nav>
-        </header>
+        </motion.header>
     );
 };
 

@@ -4,8 +4,8 @@
     left: 0;
     width: 100vw;
     height: 100vh;
-    background-color: var(--color-primary);
-    /* Deep Teal */
+    background-color: #0A1628;
+    /* Dark Navy */
     z-index: 9999;
     display: flex;
     flex-direction: column;
@@ -25,11 +25,11 @@
     font-size: 4rem;
     font-weight: 800;
     letter-spacing: -0.02em;
-    color: white;
+    color: #2BA3B6;
 }
 
 .secondaryText {
-    color: var(--color-accent);
+    color: #D4A843;
 }
 
 .progressContainer {
@@ -44,8 +44,8 @@
 
 .progressBar {
     height: 100%;
-    background-color: #64ffda;
-    /* Mint/Cyan accent */
+    background: linear-gradient(90deg, #2BA3B6, #D4A843);
+    /* Cyan to Gold gradient */
     width: 0%;
     border-radius: 4px;
 }

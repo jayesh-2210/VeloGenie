@@ -1,8 +1,8 @@
 .section {
     padding: 120px 0;
     min-height: 100vh;
-    background-color: white;
-    color: var(--color-text);
+    background-color: #0E1E36;
+    color: #b0c4de;
 }
 
 .container {
@@ -19,13 +19,13 @@
 .title {
     font-size: 3rem;
     font-weight: 700;
-    color: var(--color-heading);
+    color: #ffffff;
     margin-bottom: 1.5rem;
 }
 
 .subtitle {
     font-size: 1.25rem;
-    color: #555;
+    color: #8899aa;
     max-width: 700px;
     margin: 0 auto;
     line-height: 1.6;
@@ -39,8 +39,8 @@
 }
 
 .card {
-    background: white;
-    border: 1px solid rgba(0, 0, 0, 0.08);
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 20px;
     padding: 3rem 2rem;
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
@@ -51,19 +51,19 @@
     text-align: center;
     position: relative;
     overflow: hidden;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
 }
 
 .card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 20px 40px rgba(18, 85, 75, 0.15);
-    border-color: rgba(18, 85, 75, 0.2);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    border-color: rgba(43, 163, 182, 0.3);
+    background: rgba(255, 255, 255, 0.07);
 }
 
 .iconContainer {
     width: 70px;
     height: 70px;
-    background: rgba(18, 85, 75, 0.08);
+    background: rgba(43, 163, 182, 0.12);
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -82,27 +82,27 @@
 
 .cardTitle {
     font-size: 1.5rem;
-    color: var(--color-heading);
+    color: #ffffff;
     margin-bottom: 1rem;
     font-weight: 700;
 }
 
 .cardText {
-    color: #666;
+    color: #8899aa;
     line-height: 1.7;
     font-size: 1rem;
 }
 
 .cta {
     text-align: center;
-    background: linear-gradient(135deg, var(--color-primary) 0%, #0d423b 100%);
-    /* Deep Teal Gradient */
+    background: linear-gradient(135deg, #152238 0%, #1a2d4a 100%);
     padding: 5rem 2rem;
     border-radius: 24px;
     color: white;
-    box-shadow: 0 20px 50px rgba(18, 85, 75, 0.25);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
     position: relative;
     overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .cta::before {
@@ -112,7 +112,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: radial-gradient(circle at top right, rgba(255, 255, 255, 0.1) 0%, transparent 60%);
+    background: radial-gradient(circle at top right, rgba(43, 163, 182, 0.15) 0%, transparent 60%);
     pointer-events: none;
 }
 
@@ -124,6 +124,11 @@
     letter-spacing: -0.02em;
     position: relative;
     z-index: 1;
+}
+
+.ctaButton {
+    position: relative;
+    z-index: 2;
 }
 
 @media (max-width: 768px) {
@@ -138,9 +143,4 @@
     .ctaText {
         font-size: 1.75rem;
     }
-}
-
-.ctaButton {
-    position: relative;
-    z-index: 2;
 }

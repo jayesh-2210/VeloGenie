@@ -58,16 +58,26 @@ const CaseStudies = () => {
                         <motion.div
                             key={index}
                             className={styles.card}
-                            initial={{ opacity: 0, y: 30 }}
-                            whileInView={{ opacity: 1, y: 0 }}
+                            initial="rest"
+                            whileInView="rest"
+                            whileHover="hover"
+                            variants={{
+                                rest: { opacity: 1, y: 0, scale: 1 },
+                                hover: { scale: 1.03, y: -10 }
+                            }}
                             viewport={{ once: true }}
-                            transition={{ delay: index * 0.1 }}
+                            transition={{ type: 'spring', stiffness: 300, damping: 20 }}
                         >
                             <div className={styles.imagePlaceholder} style={{ background: 'none', padding: 0, overflow: 'hidden' }}>
-                                <img
+                                <motion.img
                                     src={project.image}
                                     alt={project.title}
-                                    style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.5s ease' }}
+                                    style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                                    variants={{
+                                        rest: { scale: 1 },
+                                        hover: { scale: 1.1 }
+                                    }}
+                                    transition={{ duration: 0.4, ease: "easeOut" }}
                                 />
                             </div>
                             <div className={styles.cardContent}>

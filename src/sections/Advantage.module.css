@@ -1,8 +1,7 @@
 .section {
     padding: 100px 0;
-    background-color: #f8f9fa;
-    /* Light Gray */
-    color: var(--color-text);
+    background-color: #0A1628;
+    color: #b0c4de;
 }
 
 .container {
@@ -23,13 +22,13 @@
     font-size: 2.75rem;
     font-weight: 700;
     margin-bottom: 1.5rem;
-    color: var(--color-heading);
+    color: #ffffff;
 }
 
 .description {
     font-size: 1.125rem;
     line-height: 1.8;
-    color: #555;
+    color: #8899aa;
     margin-bottom: 2.5rem;
     max-width: 90%;
 }
@@ -38,7 +37,7 @@
     margin-bottom: 2rem;
     border-radius: 16px;
     overflow: hidden;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
     transform: rotate(-1deg);
     transition: transform 0.3s ease;
 }
@@ -55,19 +54,18 @@
 }
 
 .statCard {
-    background: white;
+    background: rgba(255, 255, 255, 0.04);
     padding: 2.5rem 2rem;
     border-radius: 16px;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
-    /* Soft shadow */
-    border: 1px solid rgba(0, 0, 0, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.06);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     text-align: center;
 }
 
 .statCard:hover {
     transform: translateY(-5px);
-    box-shadow: 0 20px 40px rgba(18, 85, 75, 0.1);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    border-color: rgba(43, 163, 182, 0.2);
 }
 
 .statValue {
@@ -81,13 +79,13 @@
     display: block;
     font-size: 0.95rem;
     font-weight: 600;
-    color: #333;
+    color: #ffffff;
     margin-bottom: 0.5rem;
 }
 
 .statDesc {
     font-size: 0.85rem;
-    color: #777;
+    color: #8899aa;
     line-height: 1.4;
     display: block;
 }
@@ -110,11 +108,6 @@
     .description {
         margin-left: auto;
         margin-right: auto;
-    }
-
-    .imageWrapper {
-        display: inline-block;
-        max-width: 400px;
     }
 
     .title {

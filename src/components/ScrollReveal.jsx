@@ -4,23 +4,23 @@ import { motion } from 'framer-motion';
 const variants = {
     fadeIn: {
         hidden: { opacity: 0 },
-        visible: { opacity: 1, transition: { duration: 0.6 } }
+        visible: { opacity: 1 }
     },
     slideUp: {
-        hidden: { opacity: 0, y: 30 },
-        visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: 'easeOut' } }
+        hidden: { opacity: 0, y: 50 },
+        visible: { opacity: 1, y: 0 }
     },
     slideLeft: {
-        hidden: { opacity: 0, x: -30 },
-        visible: { opacity: 1, x: 0, transition: { duration: 0.6, ease: 'easeOut' } }
+        hidden: { opacity: 0, x: -50 },
+        visible: { opacity: 1, x: 0 }
     },
     slideRight: {
-        hidden: { opacity: 0, x: 30 },
-        visible: { opacity: 1, x: 0, transition: { duration: 0.6, ease: 'easeOut' } }
+        hidden: { opacity: 0, x: 50 },
+        visible: { opacity: 1, x: 0 }
     },
     zoomIn: {
         hidden: { opacity: 0, scale: 0.95 },
-        visible: { opacity: 1, scale: 1, transition: { duration: 0.5 } }
+        visible: { opacity: 1, scale: 1 }
     }
 };
 
@@ -28,10 +28,10 @@ const ScrollReveal = ({ children, variant = 'slideUp', delay = 0, className = ''
     return (
         <motion.div
             variants={variants}
-            initial={variants[variant].hidden}
-            whileInView={variants[variant].visible}
+            initial="hidden"
+            whileInView="visible"
             viewport={{ once: true, amount: 0.1 }}
-            transition={{ delay }}
+            transition={{ type: 'spring', stiffness: 100, damping: 20, delay }}
             className={className}
         >
             {children}

@@ -1,6 +1,6 @@
 .section {
     padding: 6rem 0;
-    background-color: #f9f9f9;
+    background-color: #0A1628;
 }
 
 .container {
@@ -20,7 +20,7 @@
     text-transform: uppercase;
     letter-spacing: 0.1em;
     margin-bottom: 2rem;
-    color: #888;
+    color: #6a7a8a;
 }
 
 .logoStrip {
@@ -33,14 +33,12 @@
 .partnerLogo {
     font-size: 1.5rem;
     font-weight: 700;
-    color: #ccc;
-    filter: grayscale(100%);
-    transition: filter 0.3s ease, color 0.3s ease;
+    color: #4a5a6a;
+    transition: color 0.3s ease;
 }
 
 .partnerLogo:hover {
-    filter: grayscale(0%);
-    color: var(--color-secondary);
+    color: var(--color-primary);
 }
 
 .caseStudiesSection {
@@ -51,13 +49,7 @@
     font-size: 2.5rem;
     text-align: center;
     margin-bottom: 3rem;
-    color: var(--color-secondary);
-}
-
-@media (max-width: 768px) {
-    .title {
-        font-size: 2rem;
-    }
+    color: #ffffff;
 }
 
 .grid {
@@ -67,15 +59,16 @@
 }
 
 .card {
-    background: white;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.06);
     border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
     transition: transform 0.3s ease;
 }
 
 .card:hover {
     transform: translateY(-5px);
+    border-color: rgba(43, 163, 182, 0.2);
 }
 
 .cardContent {
@@ -94,7 +87,7 @@
 
 .studyTitle {
     font-size: 1.5rem;
-    color: var(--color-secondary);
+    color: #ffffff;
     margin-bottom: 0.5rem;
 }
 
@@ -105,14 +98,14 @@
 }
 
 .desc {
-    color: #555;
+    color: #8899aa;
     line-height: 1.6;
     margin-bottom: 1.5rem;
 }
 
 .link {
     font-weight: 600;
-    color: var(--color-secondary);
+    color: #b0c4de;
     font-size: 0.9rem;
     text-decoration: none;
     transition: color 0.2s;
@@ -120,4 +113,10 @@
 
 .link:hover {
     color: var(--color-primary);
+}
+
+@media (max-width: 768px) {
+    .title {
+        font-size: 2rem;
+    }
 }
