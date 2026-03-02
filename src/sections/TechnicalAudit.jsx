@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Button from '../components/Button';
 import ScrollReveal from '../components/ScrollReveal';
 import styles from './TechnicalAudit.module.css';
+import { supabase } from '../lib/supabase';
 
 const TechnicalAudit = () => {
     const [formData, setFormData] = useState({
@@ -10,18 +11,43 @@ const TechnicalAudit = () => {
         website: '',
         painPoints: ''
     });
-    const [submitted, setSubmitted] = useState(false);
+    const [status, setStatus] = useState('idle'); // 'idle', 'submitting', 'success', 'error'
+    const [errorMessage, setErrorMessage] = useState('');
 
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        // Simulate API call
-        setTimeout(() => {
-            setSubmitted(true);
-        }, 1000);
+        setStatus('submitting');
+        setErrorMessage('');
+
+        try {
+            const { error } = await supabase
+                .from('technical_audits')
+                .insert([
+                    {
+                        name: formData.name,
+                        email: formData.email,
+                        website: formData.website,
+                        pain_points: formData.painPoints
+                    }
+                ]);
+
+            if (error) {
+                console.error('Supabase insert error:', error);
+                throw new Error(error.message || 'Failed to submit audit request. Please try again.');
+            }
+
+            setStatus('success');
+            // Optional: reset form
+            // setFormData({ name: '', email: '', website: '', painPoints: '' });
+        } catch (err) {
+            console.error('Error submitting form:', err);
+            setStatus('error');
+            setErrorMessage(err.message || 'An unexpected error occurred.');
+        }
     };
 
     return (
@@ -34,7 +60,7 @@ const TechnicalAudit = () => {
                         Our experts will analyze your architecture, performance, and security.
                     </p>
 
-                    {submitted ? (
+                    {status === 'success' ? (
                         <div className={styles.successMessage}>
                             <h3>🚀 Audit Request Received!</h3>
                             <p>Our Genies are already analyzing your digital footprint. We'll be in touch shortly.</p>
@@ -42,6 +68,11 @@ const TechnicalAudit = () => {
                         </div>
                     ) : (
                         <form onSubmit={handleSubmit} className={styles.form}>
+                            {status === 'error' && (
+                                <div className={styles.errorMessage} style={{ color: 'red', marginBottom: '1rem', padding: '1rem', backgroundColor: '#ffebee', borderRadius: '4px' }}>
+                                    {errorMessage}
+                                </div>
+                            )}
                             <div className={styles.formGroup}>
                                 <label htmlFor="name">Full Name</label>
                                 <input
@@ -52,6 +83,7 @@ const TechnicalAudit = () => {
                                     onChange={handleChange}
                                     required
                                     placeholder="John Doe"
+                                    disabled={status === 'submitting'}
                                 />
                             </div>
                             <div className={styles.formGroup}>
@@ -64,6 +96,7 @@ const TechnicalAudit = () => {
                                     onChange={handleChange}
                                     required
                                     placeholder="john@company.com"
+                                    disabled={status === 'submitting'}
                                 />
                             </div>
                             <div className={styles.formGroup}>
@@ -76,6 +109,7 @@ const TechnicalAudit = () => {
                                     onChange={handleChange}
                                     required
                                     placeholder="https://yourcompany.com"
+                                    disabled={status === 'submitting'}
                                 />
                             </div>
                             <div className={styles.formGroup}>
@@ -87,10 +121,11 @@ const TechnicalAudit = () => {
                                     onChange={handleChange}
                                     placeholder="Slow load times, mobile issues, etc."
                                     rows="4"
+                                    disabled={status === 'submitting'}
                                 ></textarea>
                             </div>
-                            <Button type="submit" variant="primary" className={styles.submitBtn}>
-                                Request Audit
+                            <Button type="submit" variant="primary" className={styles.submitBtn} disabled={status === 'submitting'}>
+                                {status === 'submitting' ? 'Requesting...' : 'Request Audit'}
                             </Button>
                         </form>
                     )}

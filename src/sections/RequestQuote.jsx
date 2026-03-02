@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Button from '../components/Button';
 import ScrollReveal from '../components/ScrollReveal';
 import styles from './RequestQuote.module.css';
+import { supabase } from '../lib/supabase';
 
 const RequestQuote = () => {
     const [formData, setFormData] = useState({
@@ -12,18 +13,45 @@ const RequestQuote = () => {
         budget: '',
         details: ''
     });
-    const [submitted, setSubmitted] = useState(false);
+    const [status, setStatus] = useState('idle'); // 'idle', 'submitting', 'success', 'error'
+    const [errorMessage, setErrorMessage] = useState('');
 
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        // Simulate API call
-        setTimeout(() => {
-            setSubmitted(true);
-        }, 1000);
+        setStatus('submitting');
+        setErrorMessage('');
+
+        try {
+            const { error } = await supabase
+                .from('quotes')
+                .insert([
+                    {
+                        name: formData.name,
+                        email: formData.email,
+                        company: formData.company,
+                        service_type: formData.serviceType,
+                        budget: formData.budget,
+                        details: formData.details
+                    }
+                ]);
+
+            if (error) {
+                console.error('Supabase insert error:', error);
+                throw new Error(error.message || 'Failed to submit quote request. Please try again.');
+            }
+
+            setStatus('success');
+            // Optional: reset form
+            // setFormData({ name: '', email: '', company: '', serviceType: 'LaunchPad', budget: '', details: '' });
+        } catch (err) {
+            console.error('Error submitting form:', err);
+            setStatus('error');
+            setErrorMessage(err.message || 'An unexpected error occurred.');
+        }
     };
 
     return (
@@ -35,7 +63,7 @@ const RequestQuote = () => {
                         Tell us about your vision. We'll engineer the logic to make it magical.
                     </p>
 
-                    {submitted ? (
+                    {status === 'success' ? (
                         <div className={styles.successMessage}>
                             <h3>✨ Quote Request Sent!</h3>
                             <p>We've received your project details. A VeloGenie strategist will contact you within 24 hours.</p>
@@ -43,6 +71,11 @@ const RequestQuote = () => {
                         </div>
                     ) : (
                         <form onSubmit={handleSubmit} className={styles.form}>
+                            {status === 'error' && (
+                                <div className={styles.errorMessage} style={{ color: 'red', marginBottom: '1rem', padding: '1rem', backgroundColor: '#ffebee', borderRadius: '4px' }}>
+                                    {errorMessage}
+                                </div>
+                            )}
                             <div className={styles.row}>
                                 <div className={styles.formGroup}>
                                     <label htmlFor="name">Name</label>
@@ -54,6 +87,7 @@ const RequestQuote = () => {
                                         onChange={handleChange}
                                         required
                                         placeholder="Jane Smith"
+                                        disabled={status === 'submitting'}
                                     />
                                 </div>
                                 <div className={styles.formGroup}>
@@ -66,6 +100,7 @@ const RequestQuote = () => {
                                         onChange={handleChange}
                                         required
                                         placeholder="jane@company.com"
+                                        disabled={status === 'submitting'}
                                     />
                                 </div>
                             </div>
@@ -80,6 +115,7 @@ const RequestQuote = () => {
                                         value={formData.company}
                                         onChange={handleChange}
                                         placeholder="Company Ltd."
+                                        disabled={status === 'submitting'}
                                     />
                                 </div>
                                 <div className={styles.formGroup}>
@@ -89,6 +125,7 @@ const RequestQuote = () => {
                                         name="serviceType"
                                         value={formData.serviceType}
                                         onChange={handleChange}
+                                        disabled={status === 'submitting'}
                                     >
                                         <option value="LaunchPad">LaunchPad (Small Biz)</option>
                                         <option value="ScaleUp">ScaleUp (Medium Biz)</option>
@@ -105,6 +142,7 @@ const RequestQuote = () => {
                                     name="budget"
                                     value={formData.budget}
                                     onChange={handleChange}
+                                    disabled={status === 'submitting'}
                                 >
                                     <option value="">Select a range</option>
                                     <option value="<5k">&lt; $5,000</option>
@@ -124,11 +162,12 @@ const RequestQuote = () => {
                                     placeholder="Describe your project, goals, and timeline..."
                                     rows="5"
                                     required
+                                    disabled={status === 'submitting'}
                                 ></textarea>
                             </div>
 
-                            <Button type="submit" variant="primary" className={styles.submitBtn}>
-                                Submit Request
+                            <Button type="submit" variant="primary" className={styles.submitBtn} disabled={status === 'submitting'}>
+                                {status === 'submitting' ? 'Submitting...' : 'Submit Request'}
                             </Button>
                         </form>
                     )}
