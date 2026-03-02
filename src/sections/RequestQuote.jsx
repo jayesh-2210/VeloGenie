@@ -9,7 +9,7 @@ const RequestQuote = () => {
         name: '',
         email: '',
         company: '',
-        serviceType: 'LaunchPad',
+        serviceType: 'Starter',
         budget: '',
         details: ''
     });
@@ -46,7 +46,7 @@ const RequestQuote = () => {
 
             setStatus('success');
             // Optional: reset form
-            // setFormData({ name: '', email: '', company: '', serviceType: 'LaunchPad', budget: '', details: '' });
+            // setFormData({ name: '', email: '', company: '', serviceType: 'Starter', budget: '', details: '' });
         } catch (err) {
             console.error('Error submitting form:', err);
             setStatus('error');
@@ -127,9 +127,9 @@ const RequestQuote = () => {
                                         onChange={handleChange}
                                         disabled={status === 'submitting'}
                                     >
-                                        <option value="LaunchPad">LaunchPad (Small Biz)</option>
-                                        <option value="ScaleUp">ScaleUp (Medium Biz)</option>
-                                        <option value="Enterprise Forge">Enterprise Forge</option>
+                                        <option value="Starter">Starter</option>
+                                        <option value="Growth">Growth</option>
+                                        <option value="Enterprise">Enterprise</option>
                                         <option value="Custom">Other / Custom</option>
                                     </select>
                                 </div>
@@ -145,10 +145,10 @@ const RequestQuote = () => {
                                     disabled={status === 'submitting'}
                                 >
                                     <option value="">Select a range</option>
-                                    <option value="<5k">&lt; $5,000</option>
-                                    <option value="5k-20k">$5,000 - $20,000</option>
-                                    <option value="20k-50k">$20,000 - $50,000</option>
-                                    <option value="50k+">$50,000+</option>
+                                    <option value="<50k">&lt; ₹50,000</option>
+                                    <option value="50k-2L">₹50,000 - ₹2,00,000</option>
+                                    <option value="2L-5L">₹2,00,000 - ₹5,00,000</option>
+                                    <option value="5L+">₹5,00,000+</option>
                                 </select>
                             </div>
 
