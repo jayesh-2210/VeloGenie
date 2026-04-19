@@ -5,22 +5,10 @@ import styles from './Careers.module.css';
 
 const jobs = [
     {
-        title: 'Senior Frontend Engineer',
-        type: 'Full-time',
-        location: 'Remote',
-        department: 'Engineering'
-    },
-    {
-        title: 'Performance Optimization Specialist',
-        type: 'Contract',
-        location: 'Remote',
-        department: 'Consulting'
-    },
-    {
-        title: 'UX/UI Designer',
-        type: 'Full-time',
-        location: 'New York / Remote',
-        department: 'Design'
+        title: 'Freelance Sales Partner',
+        type: 'Freelance',
+        location: 'Bangalore',
+        department: 'Sales'
     }
 ];
 
@@ -76,7 +64,14 @@ const Careers = () => {
                                     <span>{job.location}</span>
                                 </div>
                             </div>
-                            <Button href="#" className={styles.applyButton}>Apply Now</Button>
+                            <Button 
+                                href={`https://mail.google.com/mail/?view=cm&fs=1&to=varun@velogenie.in&su=${encodeURIComponent(`Application for ${job.title} - VeloGenie`)}`} 
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className={styles.applyButton}
+                            >
+                                Apply Now
+                            </Button>
                         </ScrollReveal>
                     ))}
                 </div>

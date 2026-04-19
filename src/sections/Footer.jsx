@@ -32,8 +32,9 @@ const Footer = () => {
                             <h4>Contact</h4>
                             <p style={{ fontSize: '0.95rem', color: 'rgba(255, 255, 255, 0.7)', lineHeight: '1.6' }}>
                                 <strong>Registered Office:</strong><br />
-                                Whitefield,<br />
-                                Bangalore
+                                2104, Sunscape, Sobha Hillview Apartment,<br />
+                                Thalagattapura, Bengaluru,<br />
+                                Karnataka, India - 560062
                             </p>
                         </div>
                         <div className={styles.column}>
