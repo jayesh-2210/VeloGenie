@@ -65,7 +65,7 @@ const Careers = () => {
                                 </div>
                             </div>
                             <Button 
-                                href={`https://mail.google.com/mail/?view=cm&fs=1&to=varun@velogenie.in&su=${encodeURIComponent(`Application for ${job.title} - VeloGenie`)}`} 
+                                href={`https://wa.me/919016664663?text=${encodeURIComponent(`Hi, I'd like to apply for the ${job.title} position at VeloGenie.`)}`} 
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className={styles.applyButton}
