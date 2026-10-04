@@ -62,8 +62,8 @@ const AboutUs = () => {
 
                     <div className={styles.teamGrid}>
                         {[
-                            { name: 'Varun V. A.', role: 'Chief Executive Officer' },
-                            { name: 'Bitthal Munja', role: 'Chief Technology Officer' }
+                            { name: 'Varsha G.', role: 'Chief Executive Officer' },
+                            { name: 'Sangeeta Gupta', role: 'Chief Technology Officer' }
                         ].map((member, index) => (
                             <ScrollReveal
                                 key={index}
